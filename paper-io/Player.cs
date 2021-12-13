@@ -24,7 +24,6 @@ namespace paper_io
         {
             
         }
-
         Point location = new Point();
         List<Point> plume = new List<Point>();
 
@@ -32,12 +31,10 @@ namespace paper_io
 
         public bool CheckdDeathCondition(List<Player> players, Player[,] Room)
         {
-
             foreach (Player playerItem in players)
             {
                 foreach (Point plumeItem in plume)
                 {
-
                     if (playerItem.location.X == plumeItem.X && playerItem.location.Y == plumeItem.Y)
                     {
                         return true;
@@ -48,18 +45,19 @@ namespace paper_io
             {
                 return true;
             }
-            if ()
+            foreach (Player territory in Room)
             {
-                return true;
+                if (this == territory)
+                {
+                }
+                else return true;
             }
             return false;
         }
-
         int m;
         int k;
         int c; // свободная территория
         int q; // вражеская территория
-
         public void Step(Game[,] room)
         {
             if (location.X == c && location.Y == c && location.X == q && location.Y == q)
@@ -67,7 +65,6 @@ namespace paper_io
                 plume.Add(location);
             }
         }
-
         public void Bot(Game[,] room)
         {
             ///Если со всех сторон находится территория текущего игрока, то направление движения не менять. 
