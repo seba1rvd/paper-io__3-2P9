@@ -30,13 +30,31 @@ namespace paper_io
 
         Boolean areNotEqual = true;
 
-        public bool CheckdDeathCondition(Point Players)
+        public bool CheckdDeathCondition(List<Player> players, Player[,] Room)
         {
-            foreach (Point item in plume)
-                if (item.X == location.X && item.Y == location.Y)
-                    return true;
+
+            foreach (Player playerItem in players)
+            {
+                foreach (Point plumeItem in plume)
+                {
+
+                    if (playerItem.location.X == plumeItem.X && playerItem.location.Y == plumeItem.Y)
+                    {
+                        return true;
+                    }
+                }
+            }
+            if (location.X < 0 || location.X > Room.GetLength(1) || location.Y < 0 || location.Y > Room.GetLength(0))
+            {
+                return true;
+            }
+            if ()
+            {
+                return true;
+            }
             return false;
         }
+
         int m;
         int k;
         int c; // свободная территория
@@ -46,7 +64,7 @@ namespace paper_io
         {
             if (location.X == c && location.Y == c && location.X == q && location.Y == q)
             {
-                plume.Add(location.X);
+                plume.Add(location);
             }
         }
 
