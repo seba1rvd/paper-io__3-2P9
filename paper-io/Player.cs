@@ -29,6 +29,29 @@ namespace paper_io
 
         Boolean areNotEqual = true;
 
+        static Random random = new Random();
+        public Player(Point point)
+        {
+            location = point;
+            direction = (Direction)random.Next(4);
+            switch (direction)
+            {
+                case Direction.Up:
+                    point.Y--;
+                    break;
+                case Direction.Right:
+                    point.X++;
+                    break;
+                case Direction.Down:
+                    point.Y++;
+                    break;
+                case Direction.Left:
+                    point.X--;
+                    break;
+            }
+
+        }
+
         public bool CheckdDeathCondition(List<Player> players, Player[,] Room)
         {
             foreach (Player playerItem in players)
