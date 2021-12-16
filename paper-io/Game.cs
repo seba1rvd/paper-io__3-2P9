@@ -28,5 +28,12 @@ namespace paper_io
             Players = new Player[n];
             Room = new Player[n * 10, n * 10];
         }
+        public void Step()
+        {
+            while()
+            {
+
+            }
+        }
     }
 }
