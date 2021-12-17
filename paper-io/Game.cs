@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace paper_io
         /// <summary>
         /// Список всех игроков
         /// </summary>
-        public Player[] Players;
+        List<Player> Players = new List<Player>();
         /// <summary>
         /// Хранит территорию игроков
         /// </summary>
@@ -25,15 +26,14 @@ namespace paper_io
         /// <param name="n">Количество игроков</param>
         public Game(byte n)
         {
-            Players = new Player[n];
             Room = new Player[n * 10, n * 10];
+            for (int i = 0; i < n; i++)
+                Players.Add(new Player());
         }
-        public void Step()
+        public void Step(byte n)
         {
-            while()
-            {
-
-            }
+            Player player = new Player();
+            player.Step();
         }
     }
 }
